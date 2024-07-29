@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect } from "react";
+import { Routes, useLocation } from "react-router-dom";
+import MainLayout from "./components/Main/Layout/MainLayout";
+import routes from "./routes";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+export default function App() {
+  const { pathname } = useLocation();
+  const nonLayoutRoutes = ["/"];
+  useEffect(() => {
+    console.log(`The path is ${pathname}`);
+  }, [pathname]);
+  return <>
+   {nonLayoutRoutes.includes(pathname) ? (
+        <div className="w-full h-max font-poppins bg-white">
+          <Routes>{routes}</Routes>
+        </div>
+      ) : (
+        <MainLayout >
+          <Routes>{routes}</Routes>
+        </MainLayout>
+      )}
+  </>;
 }
-
-export default App;
