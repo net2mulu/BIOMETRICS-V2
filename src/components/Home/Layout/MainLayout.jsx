@@ -7,7 +7,7 @@ const MainLayout = ({ children }) => {
     <>
       <NavBar />
       <SideBar />
-      <div className="bg-[#FAFAFA] shadow m-4 mx-32 rounded-lg h-[86vh]">{children}</div>
+      <div className="bg-[#FAFAFA] shadow m-4 ml-28 mr-6 rounded-lg h-[86vh]">{children}</div>
     </>
   );
 };
