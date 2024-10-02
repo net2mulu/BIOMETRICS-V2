@@ -4,6 +4,7 @@ import { toast } from "react-hot-toast";
 import { useLocation, useNavigate } from "react-router-dom";
 import { SIGN_IN } from "../apollo/mutations";
 import { GET_USER } from "../apollo/queries";
+import { assertValidExecutionArguments } from "graphql/execution/execute";
 
 export const AuthContext = createContext();
 
@@ -68,6 +69,7 @@ export const AuthProvider = ({ children }) => {
         });
       },
       onError(err) {
+        console.log(err)
         if (err.message === "INVALID_CREDENTIALS") {
           toast.error("Incorrect email or password!");
         } else {

@@ -10,8 +10,8 @@ const Home = () => {
   return (
     <div className="relative flex items-start justify-center h-full w-full overflow-hidden">
       <KitStatus />
-      <div className={`flex flex-col gap-2 items-center justify-center ${result?"mt-3":"mt-32"} ease-in-out duration-1000`}>
-        <img src={Lmis} alt="Lmis" className={`${result ? "w-44":"w-96"} ease-in-out duration-1000`} />
+      <div className={`flex flex-col gap-2 items-center justify-center ${result?"mt-3":"mt-32"} ease-in-out duration-500`}>
+        <img src={Lmis} alt="Lmis" className={`${result ? "w-44":"w-96"} ease-in-out duration-500`} />
         <div className="flex flex-col gap-2 items-center">
           <p className="font-bold text-black text-lg">
             Register Labor Biometrics

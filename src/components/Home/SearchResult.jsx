@@ -11,19 +11,22 @@ import { TbScanEye } from "react-icons/tb";
 import { TbFingerprintScan } from "react-icons/tb";
 import { HomeContext } from "../../context/HomeContext";
 import ResultLoader from "./ResultLoader";
+import { useNavigate } from "react-router-dom";
 
 const SearchResult = () => {
   const { result, setResult } = useContext(HomeContext);
 
+  const navigate = useNavigate();
+
   return (
     <>
       {result === "loading" ? (
-      <ResultLoader />
+        <ResultLoader />
       ) : (
         <div
           className={`${
             result ? "flex " : "hidden "
-          } ease-in duration-1000 relative bg-white flex flex-col gap-4 rounded-lg p-6 w-[60vw] overflow-hidden shadow-[rgba(100,100,111,0.2)_0px_7px_29px_0px]`}
+          } ease-in duration-500 relative bg-white flex flex-col gap-4 rounded-lg p-6 w-[60vw] overflow-hidden shadow-[rgba(100,100,111,0.2)_0px_7px_29px_0px]`}
         >
           <div
             onClick={() => setResult(false)}
@@ -155,7 +158,7 @@ const SearchResult = () => {
                   </div>
                 </div>
               </div>
-              <div className="inline-flex text-white bg-[#115BA2] hover:bg-[#115BA2]/60 h-[40%] gap-2 justify-center items-center cursor-pointer">
+              <div onClick={() => navigate("/scan/face")} className="inline-flex text-white bg-[#115BA2] hover:bg-[#115BA2]/60 h-[40%] gap-2 justify-center items-center cursor-pointer">
                 <span>Register</span>
                 <FaArrowRightLong />
               </div>
@@ -174,7 +177,7 @@ const SearchResult = () => {
                   </div>
                 </div>
               </div>
-              <div className="inline-flex text-white bg-[#115BA2] hover:bg-[#115BA2]/60 h-[40%] gap-2 justify-center items-center cursor-pointer">
+              <div onClick={() => navigate("")} className="inline-flex text-white bg-[#115BA2] hover:bg-[#115BA2]/60 h-[40%] gap-2 justify-center items-center cursor-pointer">
                 <span>Register</span>
                 <FaArrowRightLong />
               </div>
@@ -185,7 +188,7 @@ const SearchResult = () => {
                 <div className="flex items-center justify-start gap-2 w-full">
                   <TbFingerprintScan className="bg-blue-100 text-5xl text-[#115BA2] rounded-md" />
                   <div className="flex flex-col items-start justify-center">
-                    <p className="text-[#115BA2] font-bold">Face Camera</p>
+                    <p className="text-[#115BA2] font-bold">Fingerprint</p>
                     <span className="text-gray-500 text-xs">
                       {" "}
                       Fingerprint scan
@@ -193,7 +196,7 @@ const SearchResult = () => {
                   </div>
                 </div>
               </div>
-              <div className="inline-flex text-white bg-[#115BA2] hover:bg-[#115BA2]/60 h-[40%] gap-2 justify-center items-center cursor-pointer">
+              <div onClick={() => navigate("/scan/fingerprint")} className="inline-flex text-white bg-[#115BA2] hover:bg-[#115BA2]/60 h-[40%] gap-2 justify-center items-center cursor-pointer">
                 <span>Register</span>
                 <FaArrowRightLong />
               </div>

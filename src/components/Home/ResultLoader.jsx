@@ -8,7 +8,7 @@ const ResultLoader = () => {
     <div
       className={`${
         result ? "flex " : "hidden "
-      } ease-in duration-1000 relative bg-white flex flex-col gap-4 rounded-lg p-6 w-[60vw] overflow-hidden shadow-[rgba(100,100,111,0.2)_0px_7px_29px_0px]`}
+      } ease-in duration-500 relative bg-white flex flex-col gap-4 rounded-lg p-6 w-[60vw] overflow-hidden shadow-[rgba(100,100,111,0.2)_0px_7px_29px_0px]`}
     >
       <div
         onClick={() => setResult(false)}
